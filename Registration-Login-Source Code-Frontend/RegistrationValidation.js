@@ -2,7 +2,7 @@
 //At the beginning, the form is empty, and therefore, not valid
 
 //Data to send
-var formData = {
+let formData = {
     username: "",
     email: "",
     password: "",
@@ -11,9 +11,9 @@ var formData = {
 }
 
 //This data will be read but not be sent as part of the form submission
-var formValid= false;
-var repPassword="";
-var tosCheckBox=false;
+let formValid= false;
+let repPassword="";
+let tosCheckBox=false;
 
 
 //Function to read the form
@@ -34,7 +34,7 @@ function readForm(){
 //Function to validate the form
 function validateForm() {
     formValid = false;
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
    
     if ((formData.username.length==0) || 
            (formData.email.length==0)  ||
@@ -58,14 +58,14 @@ function validateForm() {
 
 //Function to write the Registration success on the page
 function createNewParagraph(content){
-    var text = document.createTextNode(content);
-    var paragraph = document.createElement("p");
+    let text = document.createTextNode(content);
+    let paragraph = document.createElement("p");
     paragraph.appendChild(text);
     paragraph.style = "white-space: pre;"
     paragraph.id = "hiddenParagraph";
 
-    var element = document.getElementById("hiddenSection");
-    var existingParagraph = document.getElementById("hiddenParagraph")
+    let element = document.getElementById("hiddenSection");
+    let existingParagraph = document.getElementById("hiddenParagraph")
     element.replaceChild(paragraph, existingParagraph);
 }
 
@@ -75,7 +75,7 @@ function submitForm(){
     readForm();
     validateForm();
     if (formValid){
-        var formText = formData.username +" registered as:\n";
+        let formText = formData.username +" registered as:\n";
         formText += formData.buyer?"buyer\n":"";
         formText += formData.seller?"seller":"";
 
